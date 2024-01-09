@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "iyxAJa1bUvba6vapFLhOsy1TXaa+M0306OHQ0GDZHYEKGrmvo4ZbsEb1089bmITYuUQwXWswxtY9FXxKWbSXJg==",
+  "success": true,
+  "projectFilePath": "/home/ianis/RiderProjects/Simulator/ConsoleApp1/ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "/home/ianis/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/home/ianis/.nuget/packages/rabbitmq.client/5.2.0/rabbitmq.client.5.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}

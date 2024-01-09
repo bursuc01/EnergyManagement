@@ -1,0 +1,7 @@
+<nav *ngIf="isUserAuthenticated();" class="navbar">
+    <h1>Electrica furnizor</h1>
+    <a routerLink="/chat" class="nav-tag">Chat</a>
+    <a routerLink="/login" class="nav-tag" (click)="logout()">Logout</a>
+</nav>
+
+<router-outlet></router-outlet>

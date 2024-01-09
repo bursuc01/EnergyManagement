@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: energyconsumptiondb
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      device_network:
+        ipv4_address: 172.19.0.12
+  
+  demo1monitor:
+    image: demo1monitor
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "7136:7136"
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=db; Database=energyconsumptiondb; Username=postgres; Password=postgres"
+      ASPNETCORE_URLS: http://+:7136
+      DEVICE_IP:  172.19.0.13
+    depends_on:
+      - db
+    networks:
+      device_network:
+        ipv4_address: 172.19.0.14
+
+volumes:
+  pgdata: {}
+
+networks:
+  device_network:
+    external: true

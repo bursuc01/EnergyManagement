@@ -1,0 +1,32 @@
+<div class="main-container">
+    <div class="user-list-container">
+        <h3>User list:</h3>
+        <div *ngFor="let user of userList" class="user-container">
+            <div *ngIf="!user.isAdmin">
+                <p>Id: {{ user.id }}</p>
+                <input type="text" [(ngModel)]="user.name"> 
+                <br>
+                <button (click)="updateUser(user)">Update</button>
+                <button (click)="deleteUser(user.id)">Delete</button>
+            </div>
+        </div>
+        <button (click)="redirect('register-user')">Create User</button>
+        <button (click)="redirect('link')">User To Device</button>
+    </div>
+
+    <div class="device-list-container">
+        <h3>Device list:</h3>
+        <div *ngFor="let device of deviceList" class="device-container">
+            <p>Id: {{ device.id }}</p>
+            <label *ngIf="device.userId != null; else elseBlock">UserId: {{device.userId}}</label><br>
+            <ng-template #elseBlock>UserId: null</ng-template>
+            <input type="text" [(ngModel)]="device.description">
+            <input type="text" [(ngModel)]="device.address">
+            <input type="text" [(ngModel)]="device.maximumHourlyEnergyConsumption">
+            <button (click)="updateDevice(device)">Update</button>
+            <button (click)="deleteDevice(device.id)">Delete</button>
+        </div>
+        <button (click)="redirect('register-device')">Create Device</button>
+    </div>
+
+</div>

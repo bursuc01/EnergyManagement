@@ -1,0 +1,18 @@
+<h1 class="welcome">Hello, {{username}}! These are your devices:</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Description</th>
+        <th>Address</th>
+    </tr>
+    <tr *ngFor="let device of deviceList">
+        <td>{{ device.id }}</td>
+        <td>{{ device.description }}</td>
+        <td>{{ device.address }}</td>
+    </tr>
+</table>
+
+<div *ngIf="this.socketCheck()" id="notification" class="notification">
+    {{this.lastMessage}}
+    <button (click)="makeNotification('hidden')">X</button>
+</div>

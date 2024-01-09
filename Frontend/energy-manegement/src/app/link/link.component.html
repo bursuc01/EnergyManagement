@@ -1,0 +1,18 @@
+<div class="link-container">
+    <h2>Link/Unlink Device</h2>
+    <div>
+      <label for="userId">User ID:</label>
+      <input type="text" id="userId" [(ngModel)]="userId" required>
+    </div>
+    <div>
+      <label for="deviceId">Device ID:</label>
+      <input type="text" id="deviceId" [(ngModel)]="deviceId" required>
+    </div>
+    <div>
+      <button (click)="linkDevice()">Link Device</button>
+      <button (click)="unlinkDevice()">Unlink Device</button>
+    </div>
+    <br>
+    <button (click)="goBack()">Back</button>
+</div>
+  

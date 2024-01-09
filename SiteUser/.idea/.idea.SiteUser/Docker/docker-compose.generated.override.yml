@@ -1,0 +1,24 @@
+# This is a generated file. Not intended for manual editing.
+version: "3"
+services:
+  demo1user:
+    build:
+      context: "/home/ianis/RiderProjects/SiteUser/SiteUser"
+      dockerfile: "Dockerfile"
+      target: "build-env"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/SiteUser.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      NUGET_PACKAGES: "/home/ianis/.nuget/packages"
+      NUGET_FALLBACK_PACKAGES: "/home/ianis/.nuget/packages"
+    image: "demo1user:dev"
+    ports: []
+    volumes:
+    - "/home/ianis/.nuget/packages:/root/.nuget/fallbackpackages"
+    - "/home/ianis/RiderProjects/SiteUser/SiteUser:/app:rw"
+    - "/home/ianis/RiderProjects/SiteUser:/src:rw"
+    working_dir: "/app"
